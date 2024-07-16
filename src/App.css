@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: Worksans-variableFont;
+  src: url('./faq-accordion-main/assets/fonts/WorkSans-VariableFont_wght.ttf');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+:root {
+  --Worksans-VariableFont:Worksans-variableFont;
+  --White: hsl(0, 0%, 100%);
+  --Light-pink: hsl(275, 100%, 97%);
+  --Grayish-purple: hsl(292, 16%, 49%);
+  --Dark-purple: hsl(292, 42%, 14%);
+  --Light-Purple:#AD28EB;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body{
+  font-family: var(--Worksans-VariableFont);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-image: url('./faq-accordion-main/assets/images/background-pattern-desktop.svg');
+  background-repeat:no-repeat;
+  background-size: 100%;
+  background-color:var(--Light-pink);
+  height: 100vh;
 }
-
-.App-link {
-  color: #61dafb;
+.accordion{
+  width: 490px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: var(--White);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.imgTex{
+  display: flex;
+  gap: 13px;
+  margin-bottom: 1rem;
+}
+.imgTex img{
+  width: 32px;
+  height: auto;
+}
+.imgTex h1{
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--Dark-purple);
+}
+.accordion .contentBx{
+  width: 100%;
+  position: relative;
+}
+.accordion .contentBx .label{
+  position:relative;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: .95em;
+  color: var(--Dark-purple);
+}
+.contentBx{
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.accordion .contentBx .label:hover{
+  color: var(--Light-Purple);
+}
+.accordion .contentBx .label::before{
+  content: url('./faq-accordion-main/assets/images/icon-plus.svg');
+  position:absolute;
+  top: 50%;
+  right:5px;
+  transform: translateY(-50%);
+}
+.accordion .contentBx.active .label::before{
+  content: url('./faq-accordion-main/assets/images/icon-minus.svg');
+}
+.accordion .contentBx .content{
+  position:relative;
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+  overflow-y: hidden;
+}
+.accordion .contentBx.active .content{
+  height: 90px;
+  transition: 0.5s;
+  padding-top: 5px;
+  color: var(--Grayish-purple);
 }
