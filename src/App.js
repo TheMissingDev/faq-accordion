@@ -20,7 +20,7 @@ function App() {
         </div>
         <div
           onClick={() => handleClick(1)}
-          className={`contentBx ${isActive && Index == 1 ? "active" : ""}`}
+          className={`contentBx ${Index == null ? "active" :  Index == 1 ? "active" : "" }`}
         >
           <div className="label">
             What is Frontend Mentor, and how will it help me?
